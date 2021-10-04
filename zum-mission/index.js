@@ -1,4 +1,4 @@
-require('./css/style.css');
+require('./public/css/style.css');
 const { initialRoutes, historyRouterPush } = require('./router');
 
 const appDiv = document.querySelector('#app');
@@ -12,7 +12,7 @@ window.onload = () => {
     element.addEventListener('click', (e) => {
       const pathName = e.target.getAttribute('route');
       console.log(pathName);
-      historyRouterPush(pathName, appDiv);
+      historyRouterPush(appDiv, pathName);
     });
   });
 };
