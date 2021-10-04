@@ -1,6 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const router = express.Router();
+
+router.get('/', function (req, res, next) {
+  res.send('API is working properly');
+});
 
 app.use(express.static(__dirname + '/public'));
 

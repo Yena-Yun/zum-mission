@@ -12,8 +12,8 @@ module.exports = {
   },
 
   output: {
-    path: resolve(__dirname, './dist'),
-    filename: '[name].js',
+    path: resolve(__dirname, './dist'), // 번들 파일 폴더
+    filename: '[name].js', // 번들 파일 이름 규칙
   },
 
   plugins: [
