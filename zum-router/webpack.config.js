@@ -1,19 +1,18 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-import { resolve } from 'path';
+const { resolve } = require('path');
 
 module.exports = {
-  mode: 'development',
   entry: {
     router: './router.js',
     app: './index.js',
   },
 
   output: {
-    path: resolve(__dirname, './dist'), // 번들 파일 폴더
-    filename: '[name].js', // 번들 파일 이름 규칙
+    path: resolve(__dirname, './dist'),
+    filename: '[name].js',
   },
 
   plugins: [

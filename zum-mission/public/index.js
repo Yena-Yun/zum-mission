@@ -1,6 +1,6 @@
-// require('./css/style.css');
+require('./css/style.css');
 
-import { initialRoutes, historyRouterPush } from '../router';
+const { initialRoutes, historyRouterPush } = require('../router');
 
 const historyAppDiv = document.querySelector('#history-app');
 console.log(historyAppDiv);

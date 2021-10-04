@@ -9,11 +9,15 @@ router.get('/', function (req, res, next) {
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve('index.html'));
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.resolve('index.html'));
+// });
+
+app.get('/life', (req, res) => {
+  res.send('life pageeee');
 });
 
-app.listen(3000, (err) => {
+app.listen(4000, (err) => {
   if (err) console.log(err);
   console.log('Server running on 3000...');
 });
