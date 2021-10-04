@@ -11,6 +11,7 @@ window.onload = () => {
   historyLinker.forEach((element) => {
     element.addEventListener('click', (e) => {
       const pathName = e.target.getAttribute('route');
+      console.log(pathName);
       historyRouterPush(pathName, appDiv);
     });
   });

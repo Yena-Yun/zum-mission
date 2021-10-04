@@ -30,17 +30,17 @@ header {
 	padding: 0 12px;
 }
 
+.logo-image {
+	display: block;
+	width: 70px;
+	height: 70px;
+}
+
 .header-title {
 	display: inline-block;
 	font-size: 20px;
 	font-weight: 700;
 	margin-left: 8px;
-}
-
-.logo-image {
-	display: block;
-	width: 70px;
-	height: 70px;
 }
 
 .link-container {
