@@ -1,17 +1,27 @@
-// template
 const homeTemplate = require('./pages/home.hbs');
-const aboutTemplate = require('./pages/about.hbs');
+const lifeTemplate = require('./pages/life.hbs');
+const foodTemplate = require('./pages/food.hbs');
+const tourTemplate = require('./pages/tour.hbs');
+const cultureTemplate = require('./pages/culture.hbs');
+const favoriteTemplate = require('./pages/favorite.hbs');
 
 const Home = homeTemplate();
-const About = aboutTemplate();
+const Life = lifeTemplate();
+const Food = foodTemplate();
+const Tour = tourTemplate();
+const Culture = cultureTemplate();
+const Favorite = favoriteTemplate();
 
 const routes = {
   '/': Home,
   '/home': Home,
-  '/about': About,
+  '/life': Life,
+  '/food': Food,
+  '/tour': Tour,
+  '/culture': Culture,
+  '/favorite': Favorite,
 };
 
-// entry point
 function initialRoutes(mode, el) {
   renderHTML(el, routes['/']);
 
@@ -20,13 +30,11 @@ function initialRoutes(mode, el) {
   }
 }
 
-// set browser history
 function historyRouterPush(pathName, el) {
   window.history.pushState({}, pathName, window.location.origin + pathName);
   renderHTML(el, routes[pathName]);
 }
 
-// render
 function renderHTML(el, route) {
   el.innerHTML = route;
 }

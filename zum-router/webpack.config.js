@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { resolve } = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: {
     router: './router.js',
     app: './index.js',
