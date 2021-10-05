@@ -53,17 +53,6 @@ header {
 	padding: 0 24px;
 }
 
-.page {
-	width: 90%;
-	margin: 0 auto;
-	height: 60vh;
-	border: 1px solid #4b4b4b;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
 li.history {
 	margin-right: 30px;
 	cursor: pointer;
@@ -73,4 +62,47 @@ li.history:hover {
 	font-weight: 700;
 	color: rgb(59, 114, 177);
 	font-size: 16px;
+}
+
+#app {
+	height: 100vh;
+	padding: 24px;
+}
+
+.article-div {
+	display: inline-block;
+	width: 270px;
+	height: 320px;
+	display: inline-block;
+}
+
+.article-img {
+	width: 270px;
+	height: 200px;
+	cursor: pointer;
+}
+
+.article-title {
+	width: 270px;
+	max-height: 48px;
+	overflow: hidden;
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.article-content {
+	width: 270px;
+	max-height: 40px;
+	overflow: hidden;
+	color: #999;
+	font-size: 14px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.article-media {
+	color: #b8b8b8;
+	font-size: 12px;
 }

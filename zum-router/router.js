@@ -41,16 +41,82 @@ const bestState = bestData.map(
   `
 );
 
-const lifeState = lifeData.map(
-  (el) => `
+const lifeTop = lifeData.map((el, id) => {
+  if (id < 4)
+    return `
   <div>
     <img src=${el.imageUrl} />
     <p>${el.title}</p>
     <p>${el.summaryContent}</p>
     <p>${el.mediaName}</p>
   </div>
-  `
-);
+  `;
+});
+
+const foodTop = foodData.map((el, id) => {
+  if (id < 4)
+    return `
+  <div>
+    <img src=${el.imageUrl} />
+    <p>${el.title}</p>
+    <p>${el.summaryContent}</p>
+    <p>${el.mediaName}</p>
+  </div>
+  `;
+});
+
+const tourTop = tourData.map((el, id) => {
+  if (id < 4)
+    return `
+  <div>
+    <img src=${el.imageUrl} />
+    <p>${el.title}</p>
+    <p>${el.summaryContent}</p>
+    <p>${el.mediaName}</p>
+  </div>
+  `;
+});
+
+const cultureTop = cultureData.map((el, id) => {
+  if (id < 4)
+    return `
+  <div>
+    <img src=${el.imageUrl} />
+    <p>${el.title}</p>
+    <p>${el.summaryContent}</p>
+    <p>${el.mediaName}</p>
+  </div>
+  `;
+});
+
+const lifeState = lifeData.map((el, id) => {
+  // const br = document.createElement('br');
+  // console.log(br);
+
+  const articleId = id + 1;
+
+  // id가 4의 배수일 때 뒤에 br 태그를 추가하여 줄바꿈
+  if (articleId % 4 === 0) {
+    return `
+  <div class="article-div">
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </div>
+  <br />
+  `;
+  } else {
+    return `
+  <div class="article-div">
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </div>
+  `;
+  }
+});
 
 const foodState = foodData.map(
   (el) => `
@@ -102,7 +168,7 @@ function renderHTML(el, route) {
   el.innerHTML = route;
 
   if (route === routes['/home']) {
-    el.innerHTML = bestState;
+    el.innerHTML = lifeTop + foodTop + tourTop + cultureTop + bestState;
   } else if (route === routes['/life']) {
     el.innerHTML = lifeState;
   } else if (route === routes['/food']) {

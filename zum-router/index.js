@@ -6,10 +6,24 @@ const { initialRoutes, historyRouterPush } = require('./router');
 
 const $app = document.querySelector('#app');
 
+// 무한 스크롤
+window.addEventListener('scroll', () => {
+  const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
+  if (scrollTop + clientHeight > scrollHeight - 5) {
+    setTimeout(createPost, 2000);
+  }
+});
+
+function createPost() {
+  const post = document.createElement('div');
+  post.innerHTML = ``;
+  $app.appendChild(post);
+}
+
 // 기본 경로
 initialRoutes('history', $app);
 
-// 페이지가 로드되면 각 li 클릭 시 해당 라우터의 hbs 렌더링
+// 페이지가 로드되면 각 li 클릭 시 해당 라우터 내용 렌더링
 window.onload = () => {
   const historyLinker = document.querySelectorAll('li.history');
 
