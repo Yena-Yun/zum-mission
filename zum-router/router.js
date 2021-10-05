@@ -115,38 +115,83 @@ const lifeState = lifeData.map((el, id) => {
   }
 });
 
-const foodState = foodData.map(
-  (el) => `
-  <div>
-    <img src=${el.imageUrl} />
-    <p>${el.title}</p>
-    <p>${el.summaryContent}</p>
-    <p>${el.mediaName}</p>
-  </div>
-  `
-);
+const foodState = foodData.map((el, id) => {
+  const newId = id + 1;
 
-const tourState = tourData.map(
-  (el) => `
-  <div>
-    <img src=${el.imageUrl} />
-    <p>${el.title}</p>
-    <p>${el.summaryContent}</p>
-    <p>${el.mediaName}</p>
-  </div>
-  `
-);
+  // id가 4의 배수일 때 뒤에 br 태그를 추가하여 줄바꿈
+  if (newId % 4 === 0) {
+    return `
+  <a class="article-div" href=${el.url}>
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </a>
+  <br />
+  `;
+  } else {
+    return `
+  <a class="article-div" href=${el.url}>
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </a>
+  `;
+  }
+});
 
-const cultureState = cultureData.map(
-  (el) => `
-  <div>
-    <img src=${el.imageUrl} />
-    <p>${el.title}</p>
-    <p>${el.summaryContent}</p>
-    <p>${el.mediaName}</p>
-  </div>
-  `
-);
+const tourState = tourData.map((el, id) => {
+  const newId = id + 1;
+
+  // id가 4의 배수일 때 뒤에 br 태그를 추가하여 줄바꿈
+  if (newId % 4 === 0) {
+    return `
+  <a class="article-div" href=${el.url}>
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </a>
+  <br />
+  `;
+  } else {
+    return `
+  <a class="article-div" href=${el.url}>
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </a>
+  `;
+  }
+});
+
+const cultureState = cultureData.map((el, id) => {
+  const newId = id + 1;
+
+  // id가 4의 배수일 때 뒤에 br 태그를 추가하여 줄바꿈
+  if (newId % 4 === 0) {
+    return `
+  <a class="article-div" href=${el.url}>
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </a>
+  <br />
+  `;
+  } else {
+    return `
+  <a class="article-div" href=${el.url}>
+    <img class="article-img" src=${el.imageUrl} />
+    <p class="article-title">${el.title}</p>
+    <p class="article-content">${el.summaryContent}</p>
+    <p class="article-media">${el.mediaName}</p>
+  </a>
+  `;
+  }
+});
 
 function initialRoutes(mode, el) {
   renderHTML(el, routes['/']);
