@@ -6,20 +6,6 @@ const { initialRoutes, historyRouterPush } = require('./router');
 
 const $app = document.querySelector('#app');
 
-// 무한 스크롤
-window.addEventListener('scroll', () => {
-  const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-  if (scrollTop + clientHeight > scrollHeight - 5) {
-    setTimeout(createPost, 2000);
-  }
-});
-
-function createPost() {
-  const post = document.createElement('div');
-  post.innerHTML = ``;
-  $app.appendChild(post);
-}
-
 // 기본 경로
 initialRoutes('history', $app);
 
