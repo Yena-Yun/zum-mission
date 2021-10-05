@@ -46,38 +46,39 @@ const bestRender = ({ id, mediaName, title, url }, el) => {
   `;
 };
 
-const lifeId = lifeData.map((el, id) => id + 1);
-const lifeTitle = lifeData.map((el) => el.title);
-const lifeImageUrl = lifeData.map((el) => el.mediaName);
-const lifeMediaName = lifeData.map((el) => el.mediaName);
-const lifeUrl = lifeData.map((el) => el.url);
-const lifeSummary = lifeData.map((el) => el.url);
+const lifeState = lifeData.map(
+  (el, id) => `
+  <div>
+    <img src=${el.imageUrl} />
+    <p>${el.title}</p>
+    <p>${el.summaryContent}</p>
+    <p>${el.mediaName}</p>
+  </div>`
+);
 
-// // state를 기반으로 렌더링
-let lifeState = {
-  id: lifeId,
-  title: lifeTitle,
-  imageUrl: lifeImageUrl,
-  mediaName: lifeMediaName,
-  url: lifeUrl,
-  summaryContent: lifeSummary,
-};
+// const lifeId = lifeData.map((el, id) => id + 1);
+// const lifeTitle = lifeData.map((el) => el.title);
+// const lifeImageUrl = lifeData.map((el) => el.mediaName);
+// const lifeMediaName = lifeData.map((el) => el.mediaName);
+// const lifeUrl = lifeData.map((el) => el.url);
+// const lifeSummary = lifeData.map((el) => el.url);
+
+// // // state를 기반으로 렌더링
+// let lifeState = {
+//   id: lifeId,
+//   title: lifeTitle,
+//   imageUrl: lifeImageUrl,
+//   mediaName: lifeMediaName,
+//   url: lifeUrl,
+//   summaryContent: lifeSummary,
+// };
 
 // 렌더 함수
-const lifeRender = ({ id, title, imageUrl, mediaName, url, summaryContent }, el) => {
-  el.innerHTML = `
-  <div>
-    <img src=${imageUrl} alt="thumbnail-image" />
-	    <p>${title}</p>
-	    <p>${summaryContent}</p>
-	    <p>${mediaName}</p>
-  </div>
-  `;
+const lifeRender = (state, el) => {
+  el.innerHTML = state;
 };
 
 function initialRoutes(mode, el) {
-  console.log(mode);
-  console.log(el);
   renderHTML(el, routes['/']);
   renderHTML(el, routes['/life']);
 
@@ -88,9 +89,6 @@ function initialRoutes(mode, el) {
 
 function historyRouterPush(pathName, el) {
   window.history.pushState({}, pathName, window.location.origin + pathName);
-
-  console.log(pathName);
-  console.log(routes[pathName]);
   renderHTML(el, routes[pathName]);
 }
 
@@ -98,6 +96,7 @@ function renderHTML(el, route) {
   el.innerHTML = route;
 
   bestRender(bestState, el);
+
   if (route === routes['/life']) {
     lifeRender(lifeState, el);
   }
